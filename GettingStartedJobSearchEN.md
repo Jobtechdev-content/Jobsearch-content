@@ -108,6 +108,7 @@ Unsuccessful queries will have a response code of:
 ## Use cases 
 To help you find your way forward, here are some example of use cases:
 
+* [Getting ads that are further down than 100 in the result set](#Using-offset-and-limit)
 * [Searching using Wildcard](#Searching-using-Wildcard)
 * [Phrase search](#Phrase-search)
 * [Searching for a particular job title](#Searching-for-a-particular-job-title)
@@ -120,9 +121,17 @@ To help you find your way forward, here are some example of use cases:
 * [Getting all the jobs since date and time](#Getting-all-the-jobs-since-date-and-time)
 * [Simple freetext search](#Simple-freetext-search)
 
+#### Using offset and limit
+There is a default number of ads in the result set that's set to 10. This can be increased up to a maximum of 100. From there on ads that have been given a higher number will have to be fetched using the offset parameter. So in this case i want to fetch ads 100-200 for a freetext search for python.
+
+Request URL 
+
+	https://jobsearch.api.jobtechdev.se/search?offset=100&limit=100
+
+
 
 #### Searching using Wildcard
-For some terms the easiest way to find everything you want is through a wildcard search. An example from a user requesting this kind of search was for museum jobs where both searches for "museum" and the various job titles starting with "musei" would be  relevant hits which the information structure currently dont merge very well. From version 1.8.0
+For some terms the easiest way to find everything you want is through a wildcard search. An example from a user requesting this kind of search was for museum jobs where both searches for "museum" and the various job titles starting with "musei" would be relevant hits which the information structure currently dont merge very well with. From version 1.8.0
 
 Request URL
 	
@@ -232,7 +241,18 @@ The abroad filter is created so its possible to have jobs from other countries a
 
 Request URL
 
-	https://jobsearch.api.jobtechdev.se/search?region=CifL_Rzy_Mku&abroad=true&offset=0&limit=0
+	https://jobsearch.api.jobtechdev.se/search?region=CifL_Rzy_Mku&abroad=true
+	
+### Using the remote filter
+This filter looks for well known phrases in description that are used to describe that the posistion will mean remote work. It can be both partyly or full time. The feature means the ad is tagged with remote = true if one the following phrases appear in the ad
+`"arbeta på distans", "arbete på distans", "jobba på distans", "arbeta hemifrån", "arbetar hemifrån", "jobba hemifrån", "jobb hemifrån", "remote work", "jobba tryggt hemifrån"`
+There is of course no gurantee that this method is 100% accurate but it allows for a slightly better experience for users looking for remote jobs.
+
+Request URL
+
+	https://jobsearch.api.jobtechdev.se/search?remote=true
+
+	
 
 ### Finding jobs where you can work remotely
  Using the 'remote' parameter allows you to search for jobs that have a higher likelihood of allowing you to work remotely. This is achived by filtering for ads which has one of the more common phrases defining remote work. Examples "arbeta hemifrån", "jobba hemifrån" etc 
