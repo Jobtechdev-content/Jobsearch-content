@@ -234,6 +234,10 @@ Request URL
 
 	https://jobsearch.api.jobtechdev.se/search?region=CifL_Rzy_Mku&abroad=true&offset=0&limit=0
 
+### Finding jobs where you can work remotely
+ Using the 'remote' parameter allows you to search for jobs that have a higher likelihood of allowing you to work remotely. This is achived by filtering for ads which has one of the more common phrases defining remote work. Examples "arbeta hemifrån", "jobba hemifrån" etc 
+
+  	https://jobsearch.api.jobtechdev.se/search?remote=true
 
 
 ### Customise the result set
