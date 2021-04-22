@@ -244,7 +244,7 @@ Request URL
 	https://jobsearch.api.jobtechdev.se/search?region=CifL_Rzy_Mku&abroad=true
 	
 ### Using the remote filter
-This filter looks for well known phrases in description that are used to describe that the posistion will mean remote work. It can be both partyly or full time. The feature means the ad is tagged with remote = true if one the following phrases appear in the ad
+This filter looks for well known phrases in description that are used to describe that the posistion will mean remote work. It can be both partly or full time. The feature means the ad is tagged with remote = true if one the following phrases appear in the ad
 `"arbeta på distans", "arbete på distans", "jobba på distans", "arbeta hemifrån", "arbetar hemifrån", "jobba hemifrån", "jobb hemifrån", "remote work", "jobba tryggt hemifrån"`
 There is of course no gurantee that this method is 100% accurate but it allows for a slightly better experience for users looking for remote jobs.
 
