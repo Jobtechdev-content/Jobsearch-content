@@ -276,7 +276,7 @@ A very common use case is COLLECT ALL THE ADS. We don't want you to use the sear
 ### Simple freetext search
 To disable the smart search features of the q-field, set the header `x-feature-disable-smart-freetext` to `true`. The result will be that the q-field will work like a simple text search in the ads' header and description fields.
 
-##Ad Fields
+## Ad Fields
 The format for ads in Jobsearch is created to be as user friendly and normalized as possible. The ads are created in several different systems controlled by different companies and organization so there is a large degree of variation and interpretation as to what fields are filed out and how. This is the main reason many fields are empty when looking at the ads in JSON.
 
 
