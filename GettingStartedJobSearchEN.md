@@ -115,6 +115,7 @@ To help you find your way forward, here are some example of use cases:
 * [Searching for a particular job title](#Searching-for-a-particular-job-title)
 * [Searching only within a specific field of work](#Searching-only-within-a-specific-field-of-work)
 * [Filtering employers using organisation number](#Filtering-employers-using-organisation-number)
+* [Using the remote filter](#Using-the-remote-filter)
 * [Finding jobs near you](#Finding-jobs-near-you)
 * [Negative search](#Negative-search)
 * [Finding Swedish speaking jobs abroad](#Finding-Swedish-speaking-jobs-abroad)
@@ -177,6 +178,13 @@ Request URL
 In a similar way, you can use the [Taxonomy API](https://jobtechdev.se/docs/apis/taxonomy/) to find conceptIds for the parameters _occupation-group_ and _occupation-collection_
 
 _occupation-collection_ can be used in combination with _occupation-name_, _occupation-field_ and _occupation-group_ and the search will show ads that are in ALL (AND condition between parameters)
+
+###Using the remote filter
+This filter looks for well known phrases in description that are used to describe that the posistion will mean remote work. It can be both partly or full time. The feature means the ad is tagged with remote = true if one the following phrases appear in the ad "arbeta på distans", "arbete på distans", "jobba på distans", "arbeta hemifrån", "arbetar hemifrån", "jobba hemifrån", "jobb hemifrån", "remote work", "jobba tryggt hemifrån" There is of course no gurantee that this method is 100% accurate but it allows for a slightly better experience for users looking for remote jobs.
+
+Request URL
+
+	https://jobsearch.api.jobtechdev.se/search?remote=true
 
 	
 ### Filtering employers using organisation number
@@ -276,6 +284,7 @@ A very common use case is COLLECT ALL THE ADS. We don't want you to use the sear
 ### Simple freetext search
 To disable the smart search features of the q-field, set the header `x-feature-disable-smart-freetext` to `true`. The result will be that the q-field will work like a simple text search in the ads' header and description fields.
 
+
 ## Ad Fields
 The format for ads in Jobsearch is created to be as user friendly and normalized as possible. The ads are created in several different systems controlled by different companies and organization so there is a large degree of variation and interpretation as to what fields are filed out and how. This is the main reason many fields are empty when looking at the ads in JSON.
 
@@ -345,7 +354,8 @@ The format for ads in Jobsearch is created to be as user friendly and normalized
 | skills [WeightedJobtechTaxonomyItem{...}] list of object            |  taxonomy concepts for skills with extra parameter “weight” in number format                                     | kompetenser                                                                             |                                                                                                                                                                                                                                                                                                                        |                  |
 | languages [WeightedJobtechTaxonomyItem{...}] list of objecttaxonomy | concepts for language with extra parameter “weight” in number format                                             |  sprak                                                                                  |                                                                                                                                                                                                                                                                                                                        |                  |
 | work_experiences [WeightedJobtechTaxonomyItem{...}] list of objects | taxonomy concept_id for experiences with extra parameter “weight” in number format                               | yrkeserfarenheter                                                                       | Example of a work experience WeightedJobtechTaxonomyItem object: {"varde": "i1F4cZZPJu","namn": "Systemarkitekt","vikt": 10,<br>"erfarenhetsniva":  {"varde": "yrAeFziE6u","namn": "Mindre än 1 års erfarenhet"}}                                                                                                      |                  |
-| publication_date string($date-time)                                 | Date when version of ad was published                                                                            | publiceringsdatum                                                                       |                                                                                                                                                                                                                                                                                                                        |                  |
+| publication_date string($date-time)                                 | Date when version of ad was published                                                                            |                                                                                         |                                                                                                                                                                                                                                                                                                                        |                  | 
+| application_contact[{...}]	                                        | Contacts for the job in the ad                                                                                   |kontaktpersoner where fackligRepresentant=false                                          | {name string description string email string telephone string contact_type string}                                                                                                                                                                                                                                     |                  |
 | lastpublicationdate string($date-time)                              | When should the ad be automatically unpublished                                                                  | sistaPubliceringsdatum                                                                  | If the ad have the value unpublished:true the lastpublicationdate has no effect                                                                                                                                                                                                                                        |                  |
 | removedboolean                                                      | Is an ad unpublished or not                                                                                      | avpublicerad                                                                            |                                                                                                                                                                                                                                                                                                                        |                  |
 | removed_date string($date-time)                                     | When was an deleted ad removed                                                                                   | avpubliceringsdatum                                                                     |                                                                                                                                                                                                                                                                                                                        |                  |
@@ -359,4 +369,7 @@ What's up for job ads - What we are working on
 Updating taxonomy versions automatically - new occupations, replaced occupations, types of jobs etc can be introduced with new taxonomy versions. We aim to make our API as helpfull as possible to minimize the effort for the API user. 
 
 Jobsearch 2.0 the current ad format has a lot of known issues regarding consistency and a replacing format has ben created with the aim of making it easier for employers. This new format will break the contract with the end user and a 2.0 of JobSearch will be created. 
+
+
+Besides the forever ongoing work of improving the search algorithm we are right now working on building a search for historical ads.
 
