@@ -116,6 +116,7 @@ To help you find your way forward, here are some example of use cases:
 * [Searching only within a specific field of work](#Searching-only-within-a-specific-field-of-work)
 * [Filtering employers using organisation number](#Filtering-employers-using-organisation-number)
 * [Using the remote filter](#Using-the-remote-filter)
+* [Using job-type booleans] 
 * [Finding jobs near you](#Finding-jobs-near-you)
 * [Negative search](#Negative-search)
 * [Finding Swedish speaking jobs abroad](#Finding-Swedish-speaking-jobs-abroad)
