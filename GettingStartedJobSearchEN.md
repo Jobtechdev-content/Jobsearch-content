@@ -181,8 +181,8 @@ _occupation-collection_ can be used in combination with _occupation-name_, _occu
 
 
 ###Using the remote filter
-This filter looks for well known phrases in description that are used to describe that the posistion will mean remote work. It can be both partly or full time. The feature means the ad is tagged with remote = true if one the following phrases appear in the ad 
- "arbeta på distans"  
+This filter looks for well known phrases in description that are used to describe that the posistion will mean remote work. It can be both partly or full time. The feature means the ad is tagged with remote = true if one the following phrases appear in the ad.  
+*"arbeta på distans"  
  "arbete på distans"   
  "jobba på distans"  
  "arbeta hemifrån"  
@@ -193,8 +193,8 @@ This filter looks for well known phrases in description that are used to describ
  "jobba tryggt hemifrån"  
  “work remote”  
  “jobba remote”  
- “arbeta remote” 
- There is of course no gurantee that this method is 100% accurate but it allows for a slightly better experience for users looking for remote jobs.
+ “arbeta remote”*  
+There is of course no gurantee that this method is 100% accurate but it allows for a slightly better experience for users looking for remote jobs.
 
 Request URL
 
