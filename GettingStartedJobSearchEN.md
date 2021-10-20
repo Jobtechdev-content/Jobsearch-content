@@ -116,6 +116,7 @@ To help you find your way forward, here are some example of use cases:
 * [Searching only within a specific field of work](#Searching-only-within-a-specific-field-of-work)
 * [Filtering employers using organisation number](#Filtering-employers-using-organisation-number)
 * [Using the remote filter](#Using-the-remote-filter)
+* [Using job-type booleans] 
 * [Finding jobs near you](#Finding-jobs-near-you)
 * [Negative search](#Negative-search)
 * [Finding Swedish speaking jobs abroad](#Finding-Swedish-speaking-jobs-abroad)
@@ -129,7 +130,6 @@ There is a default number of ads in the result set that's set to 10. This can be
 Request URL 
 
 	https://jobsearch.api.jobtechdev.se/search?offset=100&limit=100
-
 
 
 #### Searching using Wildcard
@@ -179,7 +179,7 @@ In a similar way, you can use the [Taxonomy API](https://jobtechdev.se/docs/apis
 
 _occupation-collection_ can be used in combination with _occupation-name_, _occupation-field_ and _occupation-group_ and the search will show ads that are in ALL (AND condition between parameters)
 
-###Using the remote filter
+
 This filter looks for well known phrases in description that are used to describe that the posistion will mean remote work. It can be both partly or full time. The feature means the ad is tagged with remote = true if one the following phrases appear in the ad  
 *"arbeta på distans"  
 "arbete på distans"  
